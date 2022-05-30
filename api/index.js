@@ -3,10 +3,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 // files import
-import authRoute from "./routes/auth.js";
-import hotelsRoute from "./routes/hotels.js";
-import usersRoute from "./routes/users.js";
-import roomsRoute from "./routes/rooms.js";
+import authRoute from "./routes/auth.route.js";
+import hotelsRoute from "./routes/hotels.route.js";
+import usersRoute from "./routes/users.route.js";
+import roomsRoute from "./routes/rooms.route.js";
 
 const app = express();
 dotenv.config();
@@ -25,8 +25,10 @@ mongoose.connection.on("disconnected", () => {
 });
 
 // middlewares
-app.use("/auth", authRoute);
 
+app.use(express.json()); // for parsing application/json
+app.use("/api/auth", authRoute);
+app.use("/api/hotels", hotelsRoute);
 // express routes
 app.get("/", (req, res) => {
   res.send("Hello, this is a first request");
