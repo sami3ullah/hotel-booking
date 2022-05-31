@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import createErorr from "http-errors";
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
   try {
@@ -32,8 +33,17 @@ export const login = async (req, res, next) => {
     if (!isPasswordCorrect)
       return next(createErorr(404, "Wrong password or username!"));
 
+    //   using jwt and sending it to the frontend, so we can use it see which type of user is logged in, in a secure way
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET
+    );
+
     const { password, isAdmin, ...otherDetails } = user._doc;
-    res.status(200).json({ ...otherDetails });
+    res
+      .cookie("access_token", token, { httpOnly: true })
+      .status(200)
+      .json({ ...otherDetails });
   } catch (err) {
     next(err);
   }

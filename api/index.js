@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 // files import
 import authRoute from "./routes/auth.route.js";
@@ -25,8 +26,9 @@ mongoose.connection.on("disconnected", () => {
 });
 
 // middlewares
-
+app.use(cookieParser());
 app.use(express.json()); // for parsing application/json
+
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 // express routes
