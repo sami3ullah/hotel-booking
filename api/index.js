@@ -30,6 +30,7 @@ app.use(cookieParser());
 app.use(express.json()); // for parsing application/json
 
 app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
 // express routes
 app.get("/", (req, res) => {
