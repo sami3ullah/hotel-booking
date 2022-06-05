@@ -32,6 +32,7 @@ app.use(express.json()); // for parsing application/json
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
 // express routes
 app.get("/", (req, res) => {
   res.send("Hello, this is a first request");
