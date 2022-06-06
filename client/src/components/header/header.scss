@@ -12,6 +12,9 @@
   margin: 20px 0 100px 0;
 }
 
+.header-container.list-hotels {
+  margin: 20px 0 0 0;
+}
 .header-list {
   display: flex;
   gap: 40px;
@@ -40,40 +43,5 @@
   font-weight: 500;
   border: none;
   padding: 10px;
-  cursor: pointer;
-}
-
-.header-search {
-  height: 30px;
-  background: white;
-  border: 3px solid #febb02;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px 0;
-  border-radius: 5px;
-  position: absolute;
-  bottom: -25px;
-  width: 100%;
-  max-width: 1024px;
-}
-
-.header-icon {
-  color: lightgray;
-}
-
-.header-search-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header-search-input {
-  border: none;
-  outline: none;
-}
-
-.header-search-text {
-  color: lightgray;
   cursor: pointer;
 }
