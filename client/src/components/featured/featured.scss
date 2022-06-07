@@ -22,6 +22,15 @@
 
 .featured-title {
     position: absolute;
-    bottom: 20px;
+    top: 20px;
     left: 20px;
+}
+.featured-title>h1 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.featured-title>h2 {
+    font-size: 13px;
+    font-weight: 500;
 }
